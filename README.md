@@ -108,8 +108,4 @@ You don't need to install any additional libraries to run the **Streamlit App** 
 
 This project provides an end-to-end solution for analyzing and predicting company prospects using machine learning. You can explore the models and visualizations either through the interactive **Streamlit dashboard** or by running the code in **Google Colab**.
 
-If you encounter any issues, feel free to raise an issue in the GitHub repository or contact the project author.
 
----
-
-Let me know if you need any further updates!
