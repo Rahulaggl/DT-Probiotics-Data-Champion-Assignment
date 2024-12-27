@@ -5,7 +5,7 @@ import seaborn as sns
 import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.metrics import accuracy_score, mean_squared_error
+from sklearn.metrics import accuracy_score, mean_squared_error, classification_report, confusion_matrix
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
@@ -73,6 +73,19 @@ for model_name, model in models.items():
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     st.write(f"{model_name} Accuracy: {accuracy:.2f}")
+    
+    # Additional Model Metrics: Confusion Matrix and Classification Report
+    st.subheader(f"{model_name} - Confusion Matrix")
+    cm = confusion_matrix(y_test, y_pred)
+    fig, ax = plt.subplots(figsize=(6, 6))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'], ax=ax)
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    st.pyplot(fig)
+    
+    st.subheader(f"{model_name} - Classification Report")
+    clf_report = classification_report(y_test, y_pred, target_names=['No', 'Yes'])
+    st.text(clf_report)
 
 # Correlation Matrix Heatmap
 st.subheader('Correlation Matrix')
@@ -89,6 +102,18 @@ plt.figure(figsize=(10, 6))
 sns.countplot(data=df_cleaned, x='Industry', hue='Prospect')
 plt.xticks(rotation=45)
 st.pyplot(plt)
+
+# Distribution of Revenue and Growth Rate
+st.subheader('Revenue and Growth Rate Distribution')
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+sns.histplot(df_cleaned['Revenue'], kde=True, ax=ax1, color='skyblue')
+ax1.set_title('Revenue Distribution')
+
+sns.histplot(df_cleaned['Growth_Rate'], kde=True, ax=ax2, color='green')
+ax2.set_title('Growth Rate Distribution')
+
+st.pyplot(fig)
 
 # Download the processed data (if needed)
 st.subheader('Download Processed Data')
