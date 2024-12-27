@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.metrics import accuracy_score, mean_squared_error, classification_report, confusion_matrix
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
@@ -54,13 +54,6 @@ log_accuracy = accuracy_score(y_test, log_y_pred)
 # Display Logistic Regression Accuracy
 st.write(f"Logistic Regression Model Accuracy: {log_accuracy:.2f}")
 
-# Linear Regression Model (for RMSE)
-linear_model = LinearRegression()
-linear_model.fit(X_train, y_train)
-linear_y_pred = linear_model.predict(X_test)
-linear_rmse = np.sqrt(mean_squared_error(y_test, linear_y_pred))
-st.write(f"Linear Regression Model RMSE: {linear_rmse:.2f}")
-
 # Model Comparison (Other Models)
 models = {
     "Decision Tree": DecisionTreeClassifier(random_state=42),
@@ -100,6 +93,13 @@ st.pyplot(fig)
 st.subheader('Prospect Distribution by Industry')
 plt.figure(figsize=(10, 6))
 sns.countplot(data=df_cleaned, x='Industry', hue='Prospect')
+plt.xticks(rotation=45)
+st.pyplot(plt)
+
+# Distribution of prospects by location
+st.subheader('Prospect Distribution by Location')
+plt.figure(figsize=(10, 6))
+sns.countplot(data=df_cleaned, x='Location', hue='Prospect')
 plt.xticks(rotation=45)
 st.pyplot(plt)
 
