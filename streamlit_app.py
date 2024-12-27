@@ -9,6 +9,11 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
+# Links for Dataset and Google Colab Notebook
+st.write("### 1. Dataset Link: [DT Probiotics Data](https://github.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/blob/main/Task_Records.csv)")
+st.write("### 2. Google Colab Notebook: [Click here to view in Google Colab](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l)")
+st.write("### 3. Github: [Click here to view in Github](https://github.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment)")
+
 # Load the dataset
 url = "https://raw.githubusercontent.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/main/Task_Records.csv"
 df = pd.read_csv(url)
