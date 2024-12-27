@@ -8,12 +8,12 @@ This repository contains a data analysis and machine learning project focused on
 
 You can explore the project in one of two ways:
 
-1. **[Automated Dashboard with Streamlit](https://dt-probiotics-data-champion-assignment-7nedwf4hekxrj37nbpuappp.streamlit.app/)**: 
+1. **Automated Dashboard with Streamlit [LINK](https://dt-probiotics-data-champion-assignment-7nedwf4hekxrj37nbpuappp.streamlit.app/)**: 
    - This is an interactive web application where you can explore the data and models, visualize various metrics, and download the processed data.
    - You will find models such as **Logistic Regression**, **Decision Trees**, **Random Forest**, and **Gradient Boosting** for prospect prediction.
    - The dashboard also features visualizations like scatter plots, correlation matrix heatmaps, and distributions of prospects.
 
-2. **[Google Colab Notebook](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l)**: 
+2. **Google Colab Notebook [LINK](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l)**: 
    - This notebook allows you to run the code, experiment with different models, and explore the dataset step-by-step. 
    - It contains the data cleaning, feature engineering, model training, and evaluation steps, along with visualizations like the ones in the Streamlit app.
    - You can interact with the notebook directly in Google Colab, modify the code, and rerun the analysis as needed.
