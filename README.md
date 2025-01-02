@@ -36,6 +36,7 @@ Sector: The sector to which the company belongs.
 Founded: Year the company was founded.
 
 Other columns providing additional details about each company.
+
 ---
 
 
@@ -115,17 +116,6 @@ streamlit run streamlit_app.py
 
 ---
 
-## Dataset
-
-- **Source**: [Dataset Link](https://github.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/blob/main/Task_Records.csv)
-- **Description**: The dataset contains company details with the following columns:
-  - `Company Name`: Name of the company.
-  - `Revenue`: Annual revenue in USD.
-  - `Sector`: Sector the company operates in.
-  - `Founded`: Year the company was established.
-  - Additional columns with detailed information.
-
----
 
 ## Technical Details
 
