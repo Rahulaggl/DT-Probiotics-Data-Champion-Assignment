@@ -129,6 +129,27 @@ if st.sidebar.button("Load Dataset"):
         joblib.dump(rf_model, 'random_forest_model.pkl')
         st.write("Model and Data saved as 'Final_Outputs.csv' and 'random_forest_model.pkl'")
 
+    # Adding download options for CSV file and Colab PDF file
+    st.subheader("Download Final Outputs")
+
+    # Download button for the cleaned dataset (CSV file)
+    csv = df_cleaned.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="Download Cleaned Data (CSV)",
+        data=csv,
+        file_name='Final_Outputs.csv',
+        mime='text/csv'
+    )
+
+    # Colab PDF Download Button (You can replace the link to the actual PDF file if available)
+    colab_pdf_link = 'https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP'
+    st.download_button(
+        label="Download Google Colab PDF",
+        data=colab_pdf_link,
+        file_name="DT_Probiotics_Data_Champion_Assignment.pdf",
+        mime="application/pdf"
+    )
+
     # Documentation and Insights
     st.subheader("Documentation and Insights")
     st.write("1. Companies with higher revenue per year tend to have more established operations.")
