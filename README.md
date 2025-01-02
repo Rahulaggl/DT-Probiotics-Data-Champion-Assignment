@@ -13,7 +13,7 @@ You can explore the project in one of two ways:
    - You will find models such as **Logistic Regression**, **Decision Trees**, **Random Forest**, and **Gradient Boosting** for prospect prediction.
    - The dashboard also features visualizations like scatter plots, correlation matrix heatmaps, and distributions of prospects.
 
-2. **Google Colab Notebook [LINK](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l)**: 
+2. **Google Colab Notebook [LINK](https://colab.research.google.com/github/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/blob/main/dt_probiotics_data_champion_assignment.ipynb)**: 
    - This notebook allows you to run the code, experiment with different models, and explore the dataset step-by-step. 
    - It contains the data cleaning, feature engineering, model training, and evaluation steps, along with visualizations like the ones in the Streamlit app.
    - You can interact with the notebook directly in Google Colab, modify the code, and rerun the analysis as needed.
