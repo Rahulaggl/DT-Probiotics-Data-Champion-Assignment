@@ -93,18 +93,32 @@ if st.sidebar.button("Load Dataset"):
 
     # Step 7: K-Means Clustering
     st.subheader("Step 7: K-Means Clustering")
-    scaler = StandardScaler()
-    df_scaled = scaler.fit_transform(df_cleaned[['Revenue', 'Founded']])
 
-    kmeans = KMeans(n_clusters=3, random_state=42)
-    df_cleaned['Cluster'] = kmeans.fit_predict(df_scaled)
+    # Ensure columns are numeric and handle any non-numeric values
+    if df_cleaned[['Revenue', 'Founded']].isnull().sum().any():
+        st.write("There are missing values in 'Revenue' or 'Founded'.")
+    else:
+        st.write("No missing values detected in the 'Revenue' or 'Founded' columns.")
 
-    st.write("Cluster assignments:")
-    st.write(df_cleaned[['Revenue', 'Founded', 'Cluster']].head())
+    # Try to scale the data and fit KMeans
+    try:
+        scaler = StandardScaler()
+        df_scaled = scaler.fit_transform(df_cleaned[['Revenue', 'Founded']])
 
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.scatterplot(x=df_cleaned['Revenue'], y=df_cleaned['Founded'], hue=df_cleaned['Cluster'], palette='Set1', ax=ax)
-    st.pyplot(fig)
+        kmeans = KMeans(n_clusters=3, random_state=42)
+        df_cleaned['Cluster'] = kmeans.fit_predict(df_scaled)
+
+        # Output cluster assignments
+        st.write("Cluster assignments:")
+        st.write(df_cleaned[['Revenue', 'Founded', 'Cluster']].head())
+
+        # Visualize clusters
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.scatterplot(x=df_cleaned['Revenue'], y=df_cleaned['Founded'], hue=df_cleaned['Cluster'], palette='Set1', ax=ax)
+        st.pyplot(fig)
+
+    except Exception as e:
+        st.write(f"Error in K-Means clustering: {e}")
 
     # Step 8: Prediction Modeling (Random Forest Classifier)
     st.subheader("Step 8: Prediction Modeling (Random Forest Classifier)")
@@ -129,27 +143,6 @@ if st.sidebar.button("Load Dataset"):
         joblib.dump(rf_model, 'random_forest_model.pkl')
         st.write("Model and Data saved as 'Final_Outputs.csv' and 'random_forest_model.pkl'")
 
-    # Adding download options for CSV file and Colab PDF file
-    st.subheader("Download Final Outputs")
-
-    # Download button for the cleaned dataset (CSV file)
-    csv = df_cleaned.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label="Download Cleaned Data (CSV)",
-        data=csv,
-        file_name='Final_Outputs.csv',
-        mime='text/csv'
-    )
-
-    # Colab PDF Download Button (You can replace the link to the actual PDF file if available)
-    colab_pdf_link = 'https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP'
-    st.download_button(
-        label="Download Google Colab PDF",
-        data=colab_pdf_link,
-        file_name="DT_Probiotics_Data_Champion_Assignment.pdf",
-        mime="application/pdf"
-    )
-
     # Documentation and Insights
     st.subheader("Documentation and Insights")
     st.write("1. Companies with higher revenue per year tend to have more established operations.")
@@ -157,3 +150,19 @@ if st.sidebar.button("Load Dataset"):
     st.write("3. Outliers in revenue were detected, particularly in the higher revenue range.")
     st.write("4. Clustering analysis identified groups of companies with distinct revenue and founding year characteristics.")
     st.write("5. The Random Forest model performed well in classifying revenue categories based on company characteristics.")
+
+    # Download CSV file and model
+    st.subheader("Download Final Outputs and Model")
+    st.download_button(
+        label="Download Final Outputs CSV",
+        data=df_cleaned.to_csv(index=False),
+        file_name='Final_Outputs.csv',
+        mime='text/csv'
+    )
+
+    st.download_button(
+        label="Download Random Forest Model",
+        data=open('random_forest_model.pkl', 'rb').read(),
+        file_name='random_forest_model.pkl',
+        mime='application/octet-stream'
+    )
