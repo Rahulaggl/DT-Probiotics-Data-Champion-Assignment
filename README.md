@@ -38,40 +38,6 @@ Founded: Year the company was founded.
 Other columns providing additional details about each company.
 ---
 
-## Project Structure
-
-- **Streamlit Dashboard**: A live web app to interact with the data and models.
-- **Google Colab Notebook**: A Jupyter-like notebook to run and modify the code.
-- **ML Models**:  Random Forest
-
----
-
-## Running the Project (Streamlit App)
-
-The **Streamlit dashboard** is hosted on Streamlit Share, and you don't need to install any dependencies to run it locally.
-
-1. Visit the live app at: [Streamlit App](https://dt-probiotics-data-champion-assignment-7nedwf4hekxrj37nbpuappp.streamlit.app/).
-2. Interact with the models, visualizations, and explore the processed data.
-3. You can download the processed data by clicking the download button within the app.
-
----
-
-## Running the Project in Google Colab
-
-If you'd like to run the code in **Google Colab**, follow these steps:
-
-1. Open the notebook using [this link](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l).
-2. Mount Google Drive (if needed) to save or load files.
-3. Install the required libraries:
-   ```bash
-   !pip install pandas numpy seaborn matplotlib scikit-learn
-   ```
-4. Run the cells in the notebook step by step, ensuring all sections (data loading, preprocessing, model training, and evaluation) are completed.
-
----
-
-
----
 
 ## Table of Contents
 
