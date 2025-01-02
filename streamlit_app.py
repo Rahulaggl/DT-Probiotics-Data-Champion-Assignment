@@ -10,7 +10,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 import joblib
-import io
 
 # Function to load the dataset
 @st.cache
@@ -23,7 +22,10 @@ st.title("DT Probiotics Data Champion Assignment")
 
 # Sidebar for user inputs
 st.sidebar.header("User Input Parameters")
-dataset_url = st.sidebar.text_input('Enter the dataset URL:', 'https://raw.githubusercontent.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/main/Task_Records.csv')
+dataset_url = st.sidebar.text_input(
+    'Enter the dataset URL:',
+    'https://raw.githubusercontent.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/main/Task_Records.csv'
+)
 
 # Streamlit app layout
 st.title('DT Probiotics Data Champion - Automated Dashboard')
@@ -125,20 +127,18 @@ if st.sidebar.button("Load Dataset"):
     st.write(f"Classification Report:\n{classification_report(y_test, y_pred)}")
     st.write(f"Confusion Matrix:\n{confusion_matrix(y_test, y_pred)}")
 
-    # Step 9: Save Final Outputs
+    # Step 9: Save Final Outputs and Model
     if st.sidebar.button("Save Model and Outputs"):
         # Save the cleaned dataset as CSV
         final_csv = df_cleaned.to_csv(index=False).encode('utf-8')
 
-        # Save the Random Forest model to an in-memory buffer
-        model_buffer = io.BytesIO()
-        joblib.dump(rf_model, model_buffer)
-        model_buffer.seek(0)  # Reset buffer pointer to the beginning
+        # Save the Random Forest model to a file
+        model_filename = 'random_forest_model.pkl'
+        joblib.dump(rf_model, model_filename)
 
         st.write("Final outputs prepared for download.")
 
-        # Add download buttons for CSV and model
-        st.subheader("Download Final Outputs and Model")
+        # Add download buttons for CSV
         st.download_button(
             label="Download Final Outputs CSV",
             data=final_csv,
@@ -146,9 +146,21 @@ if st.sidebar.button("Load Dataset"):
             mime='text/csv'
         )
 
+        # Add download buttons for Random Forest model
+        with open(model_filename, 'rb') as model_file:
+            model_data = model_file.read()
+
         st.download_button(
             label="Download Random Forest Model",
-            data=model_buffer,
+            data=model_data,
             file_name='random_forest_model.pkl',
             mime='application/octet-stream'
         )
+
+    # Documentation and Insights
+    st.subheader("Documentation and Insights")
+    st.write("1. Companies with higher revenue per year tend to have more established operations.")
+    st.write("2. The Technology sector shows a higher concentration of companies with 'High' revenue.")
+    st.write("3. Outliers in revenue were detected, particularly in the higher revenue range.")
+    st.write("4. Clustering analysis identified groups of companies with distinct revenue and founding year characteristics.")
+    st.write("5. The Random Forest model performed well in classifying revenue categories based on company characteristics.")
