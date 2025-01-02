@@ -160,9 +160,5 @@ if st.sidebar.button("Load Dataset"):
         mime='text/csv'
     )
 
-    st.download_button(
-        label="Download Random Forest Model",
-        data=open('random_forest_model.pkl', 'rb').read(),
-        file_name='random_forest_model.pkl',
-        mime='application/octet-stream'
+    
     )
