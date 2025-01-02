@@ -2,7 +2,8 @@
 
 ## Overview
 
-This repository contains a data analysis and machine learning project focused on predicting company prospects based on various features like revenue, growth rate, and industry. The assignment includes an interactive **Streamlit Dashboard** for real-time analysis, and a **Google Colab** notebook for running the code and performing the data analysis.
+The DT Probiotics Data Champion app enables users to load and analyze datasets containing company information. It provides a comprehensive workflow for data cleaning, visualization, clustering, and prediction modeling, while also offering options to download the final outputs and the trained Random Forest model.This repository features a Streamlit application designed for analyzing company data and predicting prospects. It streamlines data cleaning, exploratory data analysis, clustering, and prediction modeling using Random Forest.
+
 
 ## Choose Your View
 
@@ -69,11 +70,6 @@ If you'd like to run the code in **Google Colab**, follow these steps:
 
 ---
 
-## Key Features of the Project
-
-# DT Probiotics Data Champion Assignment
-
-This repository features a Streamlit application designed for analyzing company data and predicting prospects. It streamlines data cleaning, exploratory data analysis, clustering, and prediction modeling using Random Forest.
 
 ---
 
@@ -89,11 +85,7 @@ This repository features a Streamlit application designed for analyzing company 
 8. [Contributing](#contributing)
 9. [License](#license)
 
----
 
-## Overview
-
-The DT Probiotics Data Champion app enables users to load and analyze datasets containing company information. It provides a comprehensive workflow for data cleaning, visualization, clustering, and prediction modeling, while also offering options to download the final outputs and the trained Random Forest model.
 
 ---
 
