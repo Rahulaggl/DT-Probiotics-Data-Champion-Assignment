@@ -29,7 +29,7 @@ st.write('This is a dashboard to analyze company data and predict prospects.')
 
 # Links for Dataset and Google Colab Notebook
 st.write("### 1. Dataset Link: [Link](https://github.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/blob/main/Task_Records.csv)")
-st.write("### 2. Google Colab Notebook: [Link](https://colab.research.google.com/drive/1J68d3Yn5sM_WU219_-dKOS86aZykOSdP#scrollTo=aHP3iCkZKk1l)")
+st.write("### 2. Google Colab Notebook: [Link](https://colab.research.google.com/github/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/blob/main/dt_probiotics_data_champion_assignment.ipynb)")
 st.write("### 3. Github: [Link](https://github.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment)")
 # Load dataset when user clicks the button
 if st.sidebar.button("Load Dataset"):
