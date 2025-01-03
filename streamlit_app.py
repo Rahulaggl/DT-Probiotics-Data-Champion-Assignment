@@ -24,7 +24,7 @@ st.title("DT Probiotics Data Champion Assignment")
 st.sidebar.header("User Input Parameters")
 dataset_url = st.sidebar.text_input('Enter the dataset URL:', 'https://raw.githubusercontent.com/Rahulaggl/DT-Probiotics-Data-Champion-Assignment/main/Task_Records.csv')
 # Streamlit app layout
-st.title('DT Probiotics Data Champion - Automated Dashboard')
+
 st.write('This is a dashboard to analyze company data and predict prospects.')
 
 # Links for Dataset and Google Colab Notebook
